@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Wix>
+<!-- language must be figured out!-->
+  <Product Language="1033">
+    <Package InstallerVersion="301" Compressed="yes" InstallPrivileges="elevated"/>
+    <Media Id="1" Cabinet="cab.cab" EmbedCab="yes" CompressionLevel="high"/>
+    <!-- CoApp Packages must be allusers, not per-user (GS)-->
+    <Property Id="ALLUSERS" Value="1" />
+
+    <!-- add to ARP or not?-->
+    <SetProperty Id="ARPSYSTEMCOMPONENT" Value="1" Before="ValidateProductID"><![CDATA[NOT ADD_TO_ARP]]></SetProperty>
+    
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+    </Directory>
+    
+    <Feature Id="ProductFeature" Level="1"/>
+
+    </Product>
+</Wix>
